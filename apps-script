@@ -1,0 +1,23 @@
+function onFormSubmit(e) {
+  var values = e.namedValues;
+  var htmlBody = '<p style="font-size:30px; ">';
+  var name = "Your Name"
+  var nameData = values[name]
+  htmlBody += "Name: " + nameData + "<br>";
+  var phone = "Your Phone"
+  var phoneData = values[phone]
+  htmlBody += "Phone: " + phoneData + "<br></p>";
+
+  htmlBody += '<p style="font-size:24px; "><ol>';
+  var q1 = "First Question"
+  var q1Data = values[q1]
+  htmlBody += "<li>" + q1 + ": " + q1Data + "</li><br>";
+  var q2 = "Second Question"
+  var q2Data = values[q2]
+  htmlBody += "<li>" + q2 + ": " + q2Data + "</li><br>";
+  htmlBody += '</ol></p>';
+
+  var destination = "somebody@someemail.com"
+  var subject = "Something in the Subject"
+  GmailApp.sendEmail(destination,subject, '', {htmlBody:htmlBody})
+}
